@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VidaEnemigos : MonoBehaviour
 {
-    [Header ("VidaDelEnemigo")]
+    [Header ("Vida del enemigo")]
     [SerializeField] public int vida;
 
     public void Danio(int danio)

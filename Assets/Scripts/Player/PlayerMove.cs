@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    [Header ("ParametrosDeMovimiento")] 
+    [Header ("Parametros de movimiento")] 
     [SerializeField] private float speed;
     [SerializeField] private float jumpSpeed;
     private float movX;
@@ -12,7 +12,7 @@ public class PlayerMove : MonoBehaviour
     private CharacterController controler;
     private Vector3 velocity;
 
-    [Header ("ParametrosDeGrounded")]
+    [Header ("Parametros de grounded")]
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private bool isGrounded;
     [SerializeField] private Transform groundCheck;

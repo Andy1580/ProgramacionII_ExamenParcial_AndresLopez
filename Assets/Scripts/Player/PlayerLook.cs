@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class PlayerLook : MonoBehaviour
 {
-    private Transform eilans;
-
+    private Transform player;
     private float mouseX;
     private float mouseY;
-
-    public float mouseXSense;
-    public float mouseYSense;
-
     private float xRotate = 0;
+
+    [Header ("Velocidad de camara")]
+    [SerializeField] private float mouseXSense;
+    [SerializeField] private float mouseYSense;
 
     void Start()
     {       
-        eilans = transform.parent;
+        player = transform.parent;
 
         Cursor.lockState = CursorLockMode.Locked;
     }
  
     void Update()
+    {
+        Look();
+    }
+
+    void Look()
     {
         xRotate -= mouseY;
 
@@ -30,8 +34,9 @@ public class PlayerLook : MonoBehaviour
         mouseX = Input.GetAxis("Mouse X") * mouseXSense * Time.deltaTime;
         mouseY = Input.GetAxis("Mouse Y") * mouseYSense * Time.deltaTime;
 
-        eilans.Rotate(Vector3.up * mouseX);
+        player.Rotate(Vector3.up * mouseX);
 
         transform.localRotation = Quaternion.Euler(xRotate, 0, 0);
+
     }
 }

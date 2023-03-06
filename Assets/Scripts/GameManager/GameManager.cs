@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [Header ("ControlDeBalas")]
+    [Header ("Control de balas")]
     [SerializeField] public int balasActuales = 6;
     [SerializeField] public int maxBalas = 6;
     

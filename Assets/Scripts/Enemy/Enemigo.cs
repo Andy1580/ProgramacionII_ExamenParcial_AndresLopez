@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class Enemigo : MonoBehaviour
 {
-
     private NavMeshAgent agent;
 
     [SerializeField] public Transform player;
     [SerializeField] public string cambioDeEscena;
+
     void Start()
     {
 
