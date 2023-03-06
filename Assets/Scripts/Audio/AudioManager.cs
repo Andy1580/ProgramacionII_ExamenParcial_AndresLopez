@@ -40,8 +40,6 @@ public class AudioManager : MonoBehaviour
                 return;
             }
         }
-
-        //Debug.LogWarning("No hay musica");
     }
 
     public void StopSound(string name)
