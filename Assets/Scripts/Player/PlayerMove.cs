@@ -4,24 +4,21 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    [Header ("ParametrosDeMovimiento")] 
+    [SerializeField] private float speed;
+    [SerializeField] private float jumpSpeed;
     private float movX;
     private float movZ;
-
-    [SerializeField] 
-    private float speed;
-    public float jumpSpeed;
-
     private CharacterController controler;
-
     private Vector3 velocity;
 
-    public float gravity = -9.81f;
-
-    public bool isGrounded;
-    public Transform groundCheck;
-    public float radius;
-    public LayerMask whatIsGround;
-
+    [Header ("ParametrosDeGrounded")]
+    [SerializeField] private float gravity = -9.81f;
+    [SerializeField] private bool isGrounded;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float radius;
+    [SerializeField] private LayerMask whatIsGround;
+    
     private void Start()
     {
         controler = GetComponent<CharacterController>();
@@ -30,6 +27,11 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        Move();
+    }
+
+    void Move()
+    { 
         isGrounded = Physics.CheckSphere(groundCheck.position, radius, whatIsGround);
 
         if(isGrounded && velocity.y < 0)
@@ -51,5 +53,6 @@ public class PlayerMove : MonoBehaviour
            
         controler.Move(move * Time.deltaTime);
         controler.Move(velocity * Time.deltaTime);
+
     }
 }

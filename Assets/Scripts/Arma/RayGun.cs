@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class RayGun : MonoBehaviour
 {
-    public Transform shootPoint;
-    public int damage;
-    public int force;
-    public float rango;
+    [Header ("Atributos")]
+    [SerializeField] public Transform shootPoint;
+    [SerializeField] private int damage;
+    [SerializeField] private int force;
+    [SerializeField] private float rango;
 
+    [Header ("Capacidad")]
     private RaycastHit hit;
-    public int maxBalas;
-    public int balasActuales;
+    [SerializeField] public int maxBalas;
+    [SerializeField] public int balasActuales;
 
     void Start()
     {
@@ -42,34 +44,10 @@ public class RayGun : MonoBehaviour
             {
                 hit.rigidbody.AddForce(-hit.normal * force);
             }
-
-            //if (GameManager.instance.HayBalas())
-            //{
-            //    GameManager.instance.RestarBala();
-            //}
-            Debug.Log("Balas restantes: " + balasActuales);
         }
         else if (Input.GetMouseButtonDown(0) && GameManager.instance.balasActuales <= 0)
         {
             Debug.Log("No tienes balas");
         }
-
-        //if (Input.GetKeyDown(KeyCode.R))
-        //{
-        //    AudioManager.instance.PlaySound("Recarga");
-        //    int balasFaltantes = maxBalas - balasActuales;
-        //    if (balasFaltantes > 0)
-        //    {
-        //        if (balasFaltantes >= maxBalas)
-        //        {
-        //            balasActuales = maxBalas;
-        //        }
-        //        else
-        //        {
-        //            GameManager.instance.RecargarBalas();
-        //        }
-        //        Debug.Log("Cargando balas. Balas restantes: " + balasActuales);
-        //    }
-        //}
     }
 }

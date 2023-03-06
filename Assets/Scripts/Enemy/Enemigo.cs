@@ -9,12 +9,8 @@ public class Enemigo : MonoBehaviour
 
     private NavMeshAgent agent;
 
-    public Transform player;
-
-    public string cambioDeEscena;
-
-
-    
+    [SerializeField] public Transform player;
+    [SerializeField] public string cambioDeEscena;
     void Start()
     {
 
@@ -45,5 +41,9 @@ public class Enemigo : MonoBehaviour
 
     }
 }
+
+
+
+    
 
 
